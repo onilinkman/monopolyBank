@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Socket Client</title>
+
+		<link
+			rel="stylesheet"
+			href="css/bootstrap/dist/css/bootstrap.min.css"
+		/>
+	</head>
+	<body class="container">
+		<div class="text-bg-primary p-3">Monopoly</div>
+		<h1>Caja Monopoly</h1>
+		<hr />
+
+		<p>
+			Estado del Servidor:
+			<span id="lblOnline" class="text-success">online</span>
+			<span id="lblOffline" class="text-danger">offline</span>
+		</p>
+		<hr />
+
+		<form class="row g3" id="registerForm">
+			<div class="col-md-4">
+				<label for="inputUserName" class="form-label text-secondary"
+					>Nombre de usuario Que se registrara</label
+				>
+				<input
+					type="text"
+					class="form-control"
+					id="inputUserName"
+					placeholder="Nombre de usuario"
+					autocomplete="off"
+					required
+				/>
+				<div class="valid-feedback">Looks good!</div>
+				<div
+					id="validationServerUsernameFeedback"
+					class="invalid-feedback"
+				>
+					Coloque un usuario valido.
+				</div>
+			</div>
+
+			<div class="d-flex justify-content-center">
+				<button
+					class="btn btn-primary"
+					type="submit"
+					onclick="RegisterUser()"
+				>
+					Registrar o iniciar Sesion
+				</button>
+			</div>
+
+			<div
+				id="comboboxContainer"
+				class="d-flex justify-content-center"
+			></div>
+		</form>
+
+		<div class="d-flex justify-content-center">
+			<p class="fs-1 text-success" id="montoPlayer">0</p>
+		</div>
+		<div class="d-flex justify-content-center">
+			<div class="input-group mb-3">
+				<span class="input-group-text">$</span>
+				<input
+					type="text"
+                    id="inputCash"
+					class="form-control"
+					aria-label="Dollar amount (with dot and two decimal places)"
+				/>
+			</div>
+		</div>
+
+		<div class="d-flex justify-content-center">
+			<button class="btn btn-info" onclick="PagarAUnJugador()">Pagar</button>
+		</div>
+
+		<script src="./socket.io/socket.io.js"></script>
+		<script src="./js/socket-client.js"></script>
+		<script src="./js/index.js"></script>
+		<script src="/css/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>
